@@ -1,0 +1,26 @@
+sort1 uses: Bubble Sort
+
+How do you know?: Sort1 and sort 3 have almost similar readings but sort1 is the fastest when it comes to sorting an already sorted file.
+sort2 uses: Merge Sort
+
+How do you know?: As compared to all the other sorting algorithms, sort2 was the fastest as per the overall test readings.
+
+sort3 uses: Selection Sort
+
+How do you know?: Sort3 has somewhat similar readings to sort1, only difference being the time taken to sort a sorted list which was more in the case of sort3.
+
+My Readings:
+sort1: 
+random 5000: 1)0m0.107s 2)0m0.109s  3)0m0.142s
+sorted 5000: 1)0m0.011s 2)0m0.015s  3)0m0.014s
+reversed 5000: 1)0m0.056s 2)0m0.095s  3)0m0.076s
+
+sort2: 
+random 5000: 1)0m0.010s 2)0m0.010s  3)0m0.011s
+sorted 5000: 1)0m0.013s 2)0m0.014s  3)0m0.015s
+reversed 5000: 1)0m0.010s 2)0m0.012s  3)0m0.011s
+
+sort3: 
+random 5000: 1)0m0.091s 2)0m0.040s  3)0m0.037s
+sorted 5000: 1)0m0.065s 2)0m0.078s  3)0m0.035s
+reversed 5000: 1)0m0.035s 2)0m0.079s  3)0m0.036s
