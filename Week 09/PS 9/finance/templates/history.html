@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    C$50 Finance: Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Transacted</th>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <td>{{ stock["Symbol"] }}</td>
+                    <td>{{ stock["Shares"] }}</td>
+                    <td>{{ usd(stock["Price"]) }}</td>
+                    <td>{{ stock["Date"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

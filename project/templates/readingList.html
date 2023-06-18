@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Surge || Reading List</title>
+{% endblock %}
+
+{% block body %}
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href={{ url_for('index') }}><img id="logo-image" src="../static/Assets/Logo.png" alt="Surge-Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#homepage">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#about-us">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href={{ url_for('readingList') }}>Reading List</a>
+                </li>
+            </ul>
+            <form action="/search" method="post" class="d-flex">
+                <input class="form-control me-2" type="search" name="book"
+                    placeholder="Search for any Books." aria-label="Search">
+                <button class="btn btn-outline-success src-btn" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                {% if session.username %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href={{ url_for('logout') }}>Log Out</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href={{ url_for('login') }}>Log In</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main -->
+<h1 id="rl-heading">Reading List</h1>
+
+<div class="book-form pt-3">
+    <h3 class="text-secondary">Add a new book</h3>
+    <form method="post" class="lr-form pt-2 pb-5">
+        <div class="form-group pb-3">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" class="form-control">
+        </div>
+        <div class="form-group pb-3">
+            <label for="author" id="author">Author</label>
+            <input type="author" name="author" class="form-control">
+        </div>
+        <button type="submit" class="btn src-btn mt-1 mb-2 pb-2">Add to List</button>
+    </form>
+</div>
+
+<div class="container">
+    <table class="table table-bordered table-responsive">
+        <thead>
+            <th>Sr. No.</th>
+            <th>Title</th>
+            <th>Author</th>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book["sno"] }}</td>
+                <td>{{ book["title"] }}</td>
+                <td>{{ book["author"] }}</td>
+            </tr>
+            {% endfor %}
+    </table>
+    <form action="/remove-all" method="post" class="lr-form pt-2 needs-validation">
+        <button type="submit" class="btn btn-group btn-danger">Remove All Books</button>
+    </form>
+</div>
+{% endblock %}

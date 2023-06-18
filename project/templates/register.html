@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Surge || Sign Up</title>
+<style>
+    body {
+        background-color: #fff;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<!-- Main Form -->
+<form action="/register" method="post" class="lr-form">
+    <div class="form-group pb-3">
+        <input autocomplete="off" autofocus class="form-control" name="fullname" placeholder="Full name" type="text">
+    </div>
+    <div class="form-group pb-3">
+        <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+    </div>
+    <div class="form-group pb-3">
+        <input class="form-control" name="password" placeholder="Password" type="password">
+    </div>
+    <div class="form-group pb-3">
+        <input class="form-control" name="confirmation" placeholder="Password (again)" type="password">
+    </div>
+    <button class="btn src-btn pb-2" type="submit">Register</button>
+    Already have an account? <a class="lr-link" href={{ url_for('login') }}>Login</a>
+    Back to homepage <a class="lr-link" href={{ url_for('index') }}>Homepage</a>
+</form>
+{% endblock %}

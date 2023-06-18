@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+    </head>
+    <body>
+    
+        <script>
+
+            // TODO: Add code to check answers to questions
+
+            document.addEventListener('DOMContentLoaded', function() {
+                // Code for the MCQ's
+                let clickedButton = document.getElementsByTagName('button');
+                let answer1 = document.getElementById('ans-1');
+                let clickCount = 0;
+
+                for (let i = 0; i < clickedButton.length; i++)
+                {
+                    clickedButton[i].addEventListener('click', function() {
+                        if (clickCount == 0)  // Ensuring that the user can only click once
+                        {
+                            if (clickedButton[i].textContent == 'C Language')
+                            {
+                                answer1.textContent = 'Correct Answer';
+                                clickedButton[i].className = 'green-btn';
+                                answer1.className = 'green-text';
+                                clickCount += 1;
+                            }
+                            else
+                            {
+                                answer1.textContent = 'Incorrect Answer';
+                                clickedButton[i].className = 'red-btn';
+                                answer1.className = 'red-text';
+                                clickCount += 1;
+                            }
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    })
+                }
+
+                // Code for the input text area
+                let inputValue = document.getElementById('input-text');
+
+                document.getElementById('check-btn').addEventListener('click', function() {
+
+                    let LowerCaseInputValue = inputValue.value.toLowerCase();
+                    let answer2 = document.getElementById('ans-2');
+
+                    if (LowerCaseInputValue == 'python')
+                    {
+                        answer2.textContent = 'Correct Answer';
+                        answer2.className = 'green-text';
+                    }
+                    else 
+                    {
+                        answer2.textContent = 'Incorrect Answer';
+                        answer2.className = 'red-text';
+                    }
+                })
+            })
+            
+    </script>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Which of these is not an Object Oriented programming language?</h3>
+                <button>Java</button>
+                <button>C++</button>
+                <button>C Language</button>
+                <button>Python</button>
+                <button>JavaScript</button>
+
+                <!-- Text to display the answer -->
+                <h4 id="ans-1"></h4> 
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>What is the most popular programming language for machine learning?</h3>
+                <input id="input-text" type="text">
+                <button id="check-btn">Check Answer</button>
+
+                <!-- Text to display the answer -->
+                <h4 id="ans-2"></h4>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>

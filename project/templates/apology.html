@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block head %}
+
+<title>Surge || Apology</title>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        width: 500px;
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+<img src="../static/Assets/apology.png" alt="Apology">
+
+<h2>{{ message }}</h2>
+
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Surge || Stimulate your mind </title>
+{% endblock %}
+
+{% block body %}
+<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href={{ url_for('index') }}><img id="logo-image" src="../static/Assets/Logo.png" alt="Surge-Logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#homepage">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#about-us">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href={{ url_for('readingList') }}>Reading List</a>
+                    </li>
+                </ul>
+                <form action="/search" method="post" class="d-flex">
+                    <input class="form-control me-2" type="search" name="book"
+                        placeholder="Search for any Books" aria-label="Search">
+                    <button class="btn btn-outline-success src-btn" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    {% if session.username %}
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href={{ url_for('logout') }}>Log Out</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href={{ url_for('login') }}>Log In</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- Homepage -->
+<section class="header" id="homepage">
+    <!-- Title Container -->
+    <div class="container title-text-box">
+        <h1 id="title-heading">Surge</h1>
+        <p id="title-para">As a platform created to promote reading, we provide you with facilities to explore books
+            which resonate with your interests and simultaneously tracking the ones you have already read. Welcome to
+            the Surge community!
+        </p>
+        <a href="#info-pg"><button class="btn btn-primary" id="title-btn"><strong>Learn More</strong></button></a>
+    </div>
+</section>
+<!-- About Page -->
+<section class="about-page" id="about-us">
+    <div class="container about-text-box">
+        <h1 id="about-heading">About Us</h1>
+        <div class="container grid-style">
+            <div class="row center-row">
+                <div class="col">
+                    <p>Here at Surge, our mission is to encourage reading habits in people. We believe in a peaceful and successful economy and the best way to achieve it is through learning and education. Our website allows people to explore their interests and keep track of whatever books they have read. This allows readers to be self motivated and have a desire to explore more of their interests.</p>
+                </div>
+                <div class="col">
+                    <img class="grid-img" src="../static/Assets/about-img-1.png" alt="Person reading an E-book">
+                </div>
+            </div>
+            <div class="row center-row">
+                <div class="col">
+                    <p>Started in 2021, we are an Indian company with a vision to reach people across the world with our services. In this era of globalisation, the web has become a universal platform to provide value and propogate ideas and beliefs. Therefore, Surge is planning to expand further in this online domain by providing quality services to our users and standing by our ideals at the same time. We hope you will enjoy the experience.</p>
+                </div>
+                <div class="col">
+                    <img class="grid-img" src="../static/Assets/about-img-2.png" alt="Person reading a book">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Advantages of reading -->
+<section class="info" id="info-pg">
+    <div class="container info-text-box">
+        <h1 id="info-heading">The Significance of Reading</h1>
+        <div class="container grid-style">
+            <div class="row center-row">
+                <div class="col">
+                    <img class="grid-img" src="../static/Assets/info-img-1.png" alt="Person reading an E-book">
+                </div>
+                <div class="col">
+                    <p>Books work as portals to newer worlds. They have the potential to broaden your perspective, shape your attitude towards others and life, and open you up to new ways of thinking about everyday life. One of the benefits of reading is that it relaxes your mind and body. You recharge your energy levels much faster when you read. Reading is the best way to end the day on a calm note. It may even help you fall asleep much faster. Reading sends your analytical and critical thinking abilities into hyperdrive. Each book becomes a puzzle your mind races to solve. With each book, it keeps improving its score.</p>
+                </div>
+            </div>
+            <div class="row center-row">
+                <div class="col">
+                    <img class="grid-img" src="../static/Assets/info-img-2.png" alt="Person reading a book">
+                </div>
+                <div class="col">
+                    <p>Another vital role of reading skills in communication is perfecting your oratory skills. Reading teaches you new words and perspectives. It helps strengthen language and sharpens sentence structure. It gives you a better command over the language. All of these are critical to being a good speaker. The importance of a reading habit is that it strengthens mental muscles. Reading is one of the best mental workouts there is. It’s been found that regular mental stimulation can slow down and possibly even prevent diseases like Alzheimer’s and dementia. Reading keeps the mind agile and young.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<section class="footer">
+    <div class="card text-center bg-dark">
+        <div class="card-header">
+            Welcome to the readers' community!!
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><strong>Surge</strong></h5>
+          <p class="card-text">Designed and built with all the love in the world by Aryan Khurana with the help of Harvard CS50x.</p>
+          <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Github: aryan-khurana">
+            <strong>Contact Me</strong>
+          </button>
+        </div>
+        <div class="card-footer text-muted">
+          Copyright &copy;2021. Designed By <span>ARYAN KHURANA</span>
+        </div>
+      </div>
+</section>
+
+<script src="../static/popover.js"></script>
+{% endblock %}

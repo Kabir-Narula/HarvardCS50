@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Surge || Book Search</title>
+{% endblock %}
+
+{% block body %}
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href={{ url_for('index') }}><img id="logo-image" src="../static/Assets/Logo.png" alt="Surge-Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#homepage">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#about-us">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href={{ url_for('readingList') }}>Reading List</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search"
+                    placeholder="Search for any Books." aria-label="Search">
+                <button class="btn btn-outline-success src-btn" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                {% if session.username %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href={{ url_for('logout') }}>Log Out</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href={{ url_for('login') }}>Log In</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--Main -->
+<section class="search-page">
+    <h1 id="search-heading">Search Results</h1>
+    {% for book in books["items"] %}
+        <div class="col d-flex justify-content-center">
+            <div id="book" class="r-card mb-4">
+                <div class="card">
+
+                    {% if book.volumeInfo.imageLinks %}
+                        <img width="100%" id="bookImage" src="{{ book.volumeInfo.imageLinks.smallThumbnail }}"
+                             title="{{ book.volumeInfo.title }}" alt="{{ book.volumeInfo.title }}"/>
+                    {% else %}
+                        <img width="100%" src="../static/default-book-cover.jpg"
+                             title="{{ book.volumeInfo.title }}" alt="{{ book.volumeInfo.title }}"/>
+                    {% endif %}
+
+                    <div class="card-body">
+                        <h4 class="card-title">{{ book.volumeInfo.title }}</h4>
+                        <p class="card-text">
+                            {% if book.volumeInfo.authors %}
+                                {% for author in book.volumeInfo.authors[:3] %}
+                                    <span id="author" class="badge badge-primary text-dark">{{ author[:24] }}&nbsp;</span>
+                                {% endfor %}
+                            {% endif %}
+                        </p>
+                        <a href="/reading-list" class="btn src-btn">Add to Reading List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</section>
+{% endblock %}

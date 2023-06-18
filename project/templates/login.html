@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Surge || Log in</title>
+<style>
+    body {
+        background-color: #fff;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<!-- Main Form -->
+<form action="/login" method="post" class="lr-form needs-validation">
+    <div class="form-group pb-3">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" class="form-control">
+    </div>
+    <div class="form-group pb-3">
+        <label for="password" id="password">Password</label>
+        <input type="password" name="password" class="form-control">
+    </div>
+    <button type="submit" class="btn src-btn mt-1 mb-2 pb-2">Log in</button>
+    </br>
+    Don't have an account? <a class="lr-link" href={{ url_for('register') }}>Sign Up</a>
+    Back to homepage <a class="lr-link" href={{ url_for('index') }}>Homepage</a>
+</form>
+{% endblock %}
