@@ -1,5 +1,6 @@
 
-Harvard CS50
+
+![cs502](https://github.com/LeviAcker25/HarvardCS50/assets/137004973/d0aea8c6-e44f-40be-bcba-831066cf67da)
 
 # Introduction
 Welcome to my Harvard CS50 repository! This repository documents my extraordinary journey through the prestigious CS50 course offered by Harvard University. Throughout this immersive course, I explored the diverse landscape of computer science, delving into various programming languages and concepts.
