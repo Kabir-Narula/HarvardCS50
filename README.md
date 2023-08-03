@@ -24,5 +24,5 @@ I would like to express my sincere gratitude to Professor David J. Malan and the
 # Contact Me
 If you have any questions, feedback, or simply want to discuss computer science and programming, feel free to contact me through the following channels:
 
-Email: kabirnar10@gmail.com
-Instagram
+Email: kabirnar10@gmail.com                                                                                                                                 
+Instagram: https://www.instagram.com/_kabirnarula/#
