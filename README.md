@@ -21,8 +21,3 @@ If you're currently enrolled in CS50 or simply curious about computer science an
 # Acknowledgments
 I would like to express my sincere gratitude to Professor David J. Malan and the entire CS50 team for creating an exceptional learning experience. Their dedication and passion for teaching have been a tremendous source of inspiration.
 
-# Contact Me
-If you have any questions, feedback, or simply want to discuss computer science and programming, feel free to contact me through the following channels:
-
-Email: kabirnar10@gmail.com                                                                                                                                 
-Instagram: https://www.instagram.com/_kabirnarula/#
